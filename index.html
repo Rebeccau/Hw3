@@ -7,18 +7,30 @@
     <link rel="stylesheet" href="styles/styles.css">
   </head>
 <body ng-app="NarrowItDownApp">
-   <div class="container" ng-controller="NarrowItDownController as items">
+   <div class="container" ng-controller="NarrowItDownController as list">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control" ng-model="items.searchTerm">
+      <input type="text" placeholder="search term" class="form-control" ng-model="list.searchTerm">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-click="items.getItems(items.searchTerm)">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="list.getItems(list.searchTerm)">Narrow It Down For Me!</button>
     </div>
+    <div class="res">
+      <!-- found-items should be implemented as a component -->
+      <ul>
+        <li ng-repeat="item in list.found">
+          <h3>{{item.name}} ({{item.short_name}})
+            <button class="btn" ng-click="list.removeItem(index)">Don't want this one!</button></h3>
+          <p>{{item.description}}</p>
+        </li>
+      </ul>
+      <found-items
+        items="list.found"
+        on-remove="list.removeItem(index)"></found-items>
 
-    <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
+      {{list.message}}
+    </div>
   </div>
 
   <script src="angular.min.js"></script>
