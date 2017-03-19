@@ -21,6 +21,7 @@
   }
 
   function foundItemsDirectiveController(){
+    var list = this;
   }
 
   NarrowItDownController.$inject = ['MenuSearchService'];
@@ -36,6 +37,7 @@
           if(response.length){
             menuSearch.found = response;
             menuSearch.message = "";
+            console.log(menuSearch.found);
           }else{
             menuSearch.message = "nothing was found!";
           }
@@ -44,6 +46,7 @@
           console.log(error);
         })
       }else{ //textbox was left empty
+        menuSearch.found.length = 0;
         menuSearch.message = "nothing was found!";
       }
     }

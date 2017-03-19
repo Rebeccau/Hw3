@@ -18,13 +18,6 @@
     </div>
     <div class="res">
       <!-- found-items should be implemented as a component -->
-      <ul>
-        <li ng-repeat="item in list.found">
-          <h3>{{item.name}} ({{item.short_name}})
-            <button class="btn" ng-click="list.removeItem(index)">Don't want this one!</button></h3>
-          <p>{{item.description}}</p>
-        </li>
-      </ul>
       <found-items
         items="list.found"
         on-remove="list.removeItem(index)"></found-items>
