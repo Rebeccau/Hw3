@@ -78,7 +78,7 @@
               foundItems.push(result.data.menu_items[i]);
             }
           }
-          // return processed items
+          // return processed items 
           return foundItems;
       });
     }
