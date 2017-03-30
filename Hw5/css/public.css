@@ -164,7 +164,12 @@ h3.menu-item-title {
     text-align: center;;
   }
 }
-
+.signup_form label, .signup_form .btn{
+  width: 100%;
+}
+.signup_form .ng-touched.ng-invalid{
+  border: 1px solid red;
+}
 
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {

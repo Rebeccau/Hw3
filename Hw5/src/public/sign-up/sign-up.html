@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="col-md-4 col-md-offset-4">
+    <h1 class="text-center">Sign Up</h1>
+    <form class="form-group signup_form" novalidate name="signupForm">
+      <label>First Name:
+        <input type="text" name="fname" class="form-control"
+        ng-model="signup.user.fname"
+        required></label>
+        <span ng-if="signupForm.fname.$invalid && signupForm.fname.$touched">
+          First name is required
+          </span>
+        <label>Last Name:
+          <input type="text" name="lname" class="form-control"
+          ng-model="signup.user.lname"
+          required></label>
+          <span ng-if="signupForm.lname.$invalid && signupForm.lname.$touched">
+            Last name is required
+          </span>
+      <label>Email:
+        <input type="email" name="email" class="form-control"
+        ng-model="signup.user.email"
+        required></label>
+        <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+          Must be a valid email address: handle@domain format
+        </span>
+        <label>Phone Number:
+          <input type="text" name="number" class="form-control"
+          ng-model="signup.user.number"
+          required></label>
+          <span ng-if="signupForm.number.$invalid && signupForm.number.$touched">
+            Phone number is required
+            </span>
+        <label>Favorit Dish (menu number):
+          <input type="text" name="favorite" class="form-control"
+          ng-model="signup.user.favorite"
+          required></label>
+          <span ng-if="signupForm.favorite.$invalid && signupForm.favorite.$touched">
+            Favorite dish is required
+            </span><br/>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        ng-disabled="signupForm.$invalid"
+        ng-click="signup.submit()">Submit</button>
+    </form>
+
+    <div id="info" ng-if="signup.completed">
+      Username: {{ signup.user.username}} <br>
+      Email: {{ signup.user.email}} <br>
+      Phone: {{ signup.user.phone }}
+    </div>
+  </div>
+</div>
