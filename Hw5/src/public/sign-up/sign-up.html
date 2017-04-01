@@ -36,7 +36,8 @@
           required></label>
           <span ng-if="signupForm.favorite.$invalid && signupForm.favorite.$touched">
             Favorite dish is required
-            </span><br/>
+          </span>
+          <span ng-if="signup.errorMsg">{{signup.errorMsg}}</span><br/><br/>
       <button
         type="submit"
         class="btn btn-primary"
@@ -45,9 +46,7 @@
     </form>
 
     <div id="info" ng-if="signup.completed">
-      Username: {{ signup.user.username}} <br>
-      Email: {{ signup.user.email}} <br>
-      Phone: {{ signup.user.phone }}
+      <p>Your information has been saved!</p>
     </div>
   </div>
 </div>
