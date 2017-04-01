@@ -4,8 +4,8 @@
   angular.module('public')
   .service( 'signUpService', signUpService );
 
-  signUpService.$inject = ['$http'];
-  function signUpService($http){
+  signUpService.$inject = ['$http', 'ApiPath'];
+  function signUpService($http, ApiPath){
     var service = this;
 
     //save info of user
@@ -15,11 +15,27 @@
       //check if item exist and save if not display msg
       return $http({
         method: 'GET',
-        url: ('https://darekr123.herokuapp.com/menu_items/' + user.favorite + '.json')
+        url: ( ApiPath + '/menu_items/' + user.favorite + '.json')
       })
       .then(function (result) {
+         service.fav = result.data;
          return result.data;
       });
+    }
+
+    service.getUserInfo = function(){
+      return service.userInfo;
+    }
+
+    service.getfoodItemInfo = function(){
+      return service.fav;
+    }
+
+    service.getFavItemImage = function(){
+      if(service.fav){
+        var image = ApiPath + '/images/' + service.fav.short_name + '.jpg';
+        return image;
+      }
     }
 
   }
