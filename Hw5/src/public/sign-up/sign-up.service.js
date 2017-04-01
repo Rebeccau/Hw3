@@ -12,10 +12,11 @@
 
     service.process = function(user){
       service.userInfo = user;
+      service.favoriteItem = user.favorite.toUpperCase()
       //check if item exist and save if not display msg
       return $http({
         method: 'GET',
-        url: ( ApiPath + '/menu_items/' + user.favorite + '.json')
+        url: ( ApiPath + '/menu_items/' + service.favoriteItem + '.json')
       })
       .then(function (result) {
          service.fav = result.data;
