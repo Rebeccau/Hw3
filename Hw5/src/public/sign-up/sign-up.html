@@ -27,10 +27,9 @@
           <input type="text" name="number" class="form-control"
           ng-model="signup.user.number"
           placeholder="Phone ###-###-####"
-          pattern="(\d{3})-(\d{3})-(\d{4})"
-          required></label>
+          pattern="(\d{3})-(\d{3})-(\d{4})"></label>
           <span ng-if="signupForm.number.$invalid && signupForm.number.$touched">
-            Phone number is required
+            Phone must be in the format ###-###-####.
             </span>
         <label>Favorit Dish (menu number):
           <input type="text" name="favorite" class="form-control"
